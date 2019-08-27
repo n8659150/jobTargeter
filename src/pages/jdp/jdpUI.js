@@ -5,8 +5,11 @@ const jdpUI = (props) => {
     console.log(props)
     return (
         <div>
-            <Button type="primary" onClick={props.getJobDetail}>HAHAHA!</Button>
+            <Button type="primary" onClick={props.getJobDetail(props.params.jobDID)}>HAHAHA!</Button>
             {props.currentjob.Content}
+            {props.currentjob.Company}
+            {/* {props.currentjob.Location} */}
+            {props.currentjob.Title}
         </div>
 
 

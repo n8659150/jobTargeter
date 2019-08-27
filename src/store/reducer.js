@@ -26,10 +26,6 @@ export default (state = defaultState, action) => {
         return newState;
     }
 
-    if (action.type === 'getJobDetail') {
-        const newState = JSON.parse(JSON.stringify(state));
-        return newState;
-    }
 
     if (action.type === 'setJobDetail') {
         const newState = JSON.parse(JSON.stringify(state));

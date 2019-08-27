@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getJobDetail: () => {
-            dispatch(getJobDetail())
+        getJobDetail: (jobDID) => {
+            dispatch(getJobDetail(jobDID))
         }
     }
 }
