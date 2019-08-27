@@ -1,7 +1,33 @@
 import React from 'react';
+import { Input, Button, List } from 'antd/es';
+import { Link } from 'react-router'
 const jrpUI = (props) => {
+    console.log(props);
     return (
-        <div>This is JRP page</div>
+   <div style={{ margin: '10px' }}>
+        <div>
+            <Input
+                placeholder={props.placeholder}
+                style={{ width: '250px', marginRight: '10px' }}
+                onChange={props.updateKeywords}
+                value={props.keywords}
+            />
+            <Button type="primary" onClick={props.add}>Go!</Button>
+        </div>
+        <div style={{ width: '320px', marginTop: '10px' }}>
+            <List bordered
+                dataSource={props.joblist}
+                renderItem={(item, index) =>
+                    <List.Item>
+                        <Link to={`/details/${item.id}`}>{item}</Link>
+                    </List.Item>
+                }
+            />
+        </div>
+
+    </div>
+
+
     )
 }
 export default jrpUI

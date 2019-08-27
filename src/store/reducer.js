@@ -3,6 +3,7 @@ let defaultState = {
     userhome:'No 500, South Pudong Rd', //The location user provide (the start location)
     userhome_lat:0.00,
     userhome_long:0.00,
+    joblist: [{id:1,jobTitle:'Software Engineer1'},{id:2,jobTitle:'Software Engineer2'},{id:3,jobTitle:'Software Engineer3'}],
     currentjob: {}, //current JDP job data
     directions: [], // the direction results we got from google
     suggestions:{} // the preferred plan we suggest (by car, by train etc.)
