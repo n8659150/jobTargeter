@@ -2,9 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import notFound from './pages/404/404';
+import jrpUI from './pages/jrp/jrpUI'
+import jdpUI from './pages/jdp/jdpUI'
+import { Router, Route, browserHistory } from 'react-router'
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    (<Router history={browserHistory}>
+    <Route path="/" component={App}>
+        <Route path="result" component={jrpUI} />
+        <Route path="detail" component={jdpUI} />
+    <Route path="*" component={notFound}/>
+    </Route>
+    </Router>),
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
