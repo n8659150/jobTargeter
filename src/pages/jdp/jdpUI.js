@@ -6,9 +6,7 @@ const jdpUI = (props) => {
     return (
         <div>
             <Button type="primary" onClick={props.getJobDetail}>HAHAHA!</Button>
-            {props.location.pathname}
-
-
+            {props.currentjob.Content}
         </div>
 
 

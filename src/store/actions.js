@@ -10,3 +10,7 @@ export const search = () => ({
 export const getJobDetail = () => ({
     type: 'getJobDetail'
 })
+
+export const setJobDetail = () => ({
+    type: 'setJobDetail'
+})

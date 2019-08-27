@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getJobDetail, updateKeyword } from '../../store/actions';
+import { getJobDetail } from '../../store/actions';
 import jdpUI from './jdpUI';
 
 const mapStateToProps = state => {
@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getJobDetail: (state) => {
-            dispatch(getJobDetail(state))
+        getJobDetail: () => {
+            dispatch(getJobDetail())
         }
     }
 }

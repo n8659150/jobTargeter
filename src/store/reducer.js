@@ -8,7 +8,7 @@ let defaultState = {
     directions: [], // the direction results we got from google
     suggestions: {} // the preferred plan we suggest (by car, by train etc.)
 };
-export default async (state = defaultState, action) => {
+export default (state = defaultState, action) => {
     if (action.type === 'updateKeyword') {
         const newState = JSON.parse(JSON.stringify(state));
         newState.keywords = action.value;
@@ -23,9 +23,12 @@ export default async (state = defaultState, action) => {
 
     if (action.type === 'getJobDetail') {
         const newState = JSON.parse(JSON.stringify(state));
-        const jobDetails = await fetch('http://localhost:3000/J3S76T793769S74BKJW')
-        const data = await jobDetails.json()
-        newState.currentjob = data;
+        return newState;
+    }
+
+    if (action.type === 'setJobDetail') {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.currentjob = action.payload;
         console.log(newState)
         return newState;
     }
