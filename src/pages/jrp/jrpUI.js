@@ -9,17 +9,22 @@ const jrpUI = (props) => {
             <Input
                 placeholder={props.placeholder}
                 style={{ width: '250px', marginRight: '10px' }}
-                onChange={props.updateKeywords}
+                onChange={props.updateKeyword}
                 value={props.keywords}
             />
             <Button type="primary" onClick={props.add}>Go!</Button>
         </div>
-        <div style={{ width: '320px', marginTop: '10px' }}>
+        <div style={{ marginTop: '10px' }}>
             <List bordered
                 dataSource={props.joblist}
                 renderItem={(item, index) =>
                     <List.Item>
-                        <Link to={`/details/${item.id}`}>{item}</Link>
+                        <List.Item.Meta
+                            key={index}
+                            title={<Link to={`detail/${item.id}`}>
+                            {item.jobTitle}
+                            </Link>}
+                        />
                     </List.Item>
                 }
             />
