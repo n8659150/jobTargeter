@@ -12,7 +12,7 @@ ReactDOM.render(
     (<Router history={browserHistory}>
     <Route path="/" component={App}>
         <Route path="result" component={jrpUI} />
-        <Route path="detail" component={jdpUI} />
+        <Route path="detail/:jobDID" component={jdpUI} />
     <Route path="*" component={notFound}/>
     </Route>
     </Router>),
