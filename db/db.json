@@ -1,33 +1,68 @@
 {
-    "J3S76T793769S74BKJW": {
+   "J3S76T793769S74BKJ1": {
+       "Details": {
+           "Title": "Forklift Operator (Sit Down Forklift)",
+           "Campany": "DSC Logistics, Inc.",
+           "Content": "DSC Logistics is a leader in transforming logistics and supply chain management into a critical business strategy based on collaborative partnerships, innovative thinking and high-performance operations.",
+           "Location": {
+               "Latitude": 33.3940355,
+               "Longitude": -84.174973
+           }
+       }
+   },
+   "JXS76T793769S74BKL2": {
+       "Details": {
+           "Title": "Automotive Technician",
+           "Campany": "UPS",
+           "Content": "UPS is hiring individuals to work as Full-Time Automotive Technicians. Fleet diesel and gas experience or trade school training are highly desirable. Diagnostic and troubleshooting skills are encouraged. UPS Automotive Technicians must be at least 21 years",
+           "Location": {
+               "Latitude": 33.7834238,
+               "Longitude": -84.5103724
+           }
+       }
+   },
+   "J4S76T793769S74BKJ3": {
+       "Details": {
+           "Title": "Food Manufacturing Packaging Machine Operator - 2nd Shift",
+           "Campany": "TreeHouse Foods, Inc.",
+           "Content": "Food Manufacturing Packaging Machine Operator - 2nd Shift Job Description: Set-up and operate dressing filling machines and support equipment. Verify proper packaging and label information and maintain records through computer based systems.",
+           "Location": {
+               "Latitude": 33.9409868,
+               "Longitude": -80.9360495
+           }
+       }
+   },
+   "JXS76T793769S74BKL4": {
         "Details": {
-            "Title": "Scientific,Pharmacy Technician",
-            "Content": "Seeking Pharmacy Technician with experience.MUST HAVE 2-4 years o",
+            "Title": "Respiratory Therapist Paid Per Service",
+            "Campany": "Rotech Healthcare Inc",
+            "Content": "We are seeking a qualified Respiratory Therapist (RT / RRT / CRT) to join the Rotech team. In this position you will be responsible for providing clinical patient services and support within the location.",
             "Location": {
-                "Latitude": 32.4609764,
-                "Longitude": -84.9877094
+                "Latitude": 34.0903379,
+                "Longitude": -81.0574116
             }
         }
     },
-    "JXS76T793769S74BKLW": {
+    "JXS76T793769S74BKL5": {
         "Details": {
-            "Title": "Scientific,Pharmacy Technician",
-            "Content": "Seeking Pharmacy Technician with experience.",
+            "Title": "Quality Control Tech -(Yard/Warehouse) M-F 10a-7p",
+            "Campany": "Lkq Corporation",
+            "Content": "As a part of our growth LKQ is looking for a dedicated and passionate Quality Control Tech with knowledge of replacement parts for a Quality Control Tech. The Quality Control Tech must have some experience in car repair and parts.",
             "Location": {
-                "Latitude": 32.4609764,
-                "Longitude": -84.9877094
+                "Latitude": 34.065926,
+                "Longitude": -81.0215969
             }
         }
     },
-    "J4S76T793769S74BKJW": {
+    "JXS76T793769S74BKL6": {
         "Details": {
-            "Title": "Scientific,Pharmacy Technician",
-            "Content": "Seeking Pharmacy Technician with experience.",
+            "Title": "DISHWASHER-Black Bear Lodge",
+            "Campany": "Black Bear Lodge",
+            "Content": "Foundations Recovery Network (FRN) is the premier provider of integrated treatment for co-occurring addiction and mental health concerns, offering residential and outpatient services nationwide.",
             "Location": {
-                "Latitude": 32.4609364,
-                "Longitude": -84.9875094
+                "Latitude": 34.9453994,
+                "Longitude": -83.9710342
             }
         }
     }
-
 }
