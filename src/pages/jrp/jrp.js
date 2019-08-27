@@ -3,9 +3,10 @@ import { updateKeyword, search } from '../../store/actions';
 import jrpUI from './jrpUI';
 const mapStateToProps = state => {
     return {
-        placeholder: "What kind of job are you seeking for?",
+        placeholder: "What jobs are you seeking for?",
         joblist: state.joblist,
-        keywords: state.keywords
+        keywords: state.keywords,
+        userhome: state.userhome
     }
 }
 

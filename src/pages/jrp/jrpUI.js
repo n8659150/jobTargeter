@@ -1,26 +1,33 @@
 import React from 'react';
-import { Input, Button, List } from 'antd/es';
+import { Input, Button, List, PageHeader, Tag } from 'antd/es';
 import { Link } from 'react-router'
 const jrpUI = (props) => {
     console.log(props);
     return (
+        
    <div style={{ margin: '10px' }}>
-        <div>
+       <PageHeader
+        title="Original Location"
+        subTitle={props.userhome}
+        tags={<Tag color="green">Home</Tag>}
+        extra={[
             <Input
                 placeholder={props.placeholder}
-                style={{ width: '250px', marginRight: '10px' }}
+                style={{ width: '300px', marginRight: '10px' }}
                 onChange={props.updateKeyword}
                 value={props.keywords}
-            />
+            />,
             <Button type="primary" onClick={props.add}>Go!</Button>
-        </div>
+            ]}>
+    </PageHeader>
+        
         <div style={{ marginTop: '10px' }}>
             <List bordered
                 dataSource={props.joblist}
                 renderItem={(item, index) =>
                     <List.Item>
                         <List.Item.Meta
-                            key={index}
+                            key={item.id}
                             title={<Link to={`detail/${item.id}`}>
                             {item.jobTitle}
                             </Link>}
