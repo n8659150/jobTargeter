@@ -17,7 +17,12 @@ export default (state = defaultState, action) => {
 
     if (action.type === 'search') {
         const newState = JSON.parse(JSON.stringify(state));
-        newState.keywords = '';
+        return newState;
+    }
+
+    if (action.type === 'getJobResult') {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.joblist.push(action.payload);
         return newState;
     }
 
@@ -29,7 +34,6 @@ export default (state = defaultState, action) => {
     if (action.type === 'setJobDetail') {
         const newState = JSON.parse(JSON.stringify(state));
         newState.currentjob = action.payload;
-        console.log(newState)
         return newState;
     }
 

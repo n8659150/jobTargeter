@@ -15,8 +15,8 @@ const mapDispatchToProps = (dispatch) => {
         updateKeyword: (event) => {
             dispatch(updateKeyword(event))
         },
-        search: () => {
-            dispatch(search())
+        search: (keywords) => {
+            dispatch(search(keywords))
         }
     }
 }

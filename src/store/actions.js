@@ -3,8 +3,9 @@ export const updateKeyword = (event) => ({
     value: event.target.value
 })
 
-export const search = () => ({
-    type: 'search'
+export const search = (keywords) => ({
+    type: 'search',
+    keywords
 })
 
 export const getJobDetail = () => ({

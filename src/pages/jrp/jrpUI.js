@@ -17,7 +17,7 @@ const jrpUI = (props) => {
                 onChange={props.updateKeyword}
                 value={props.keywords}
             />,
-            <Button type="primary" onClick={props.add}>Go!</Button>
+            <Button type="primary" onClick={props.search.bind(this,props.keywords)}>Go!</Button>
             ]}>
     </PageHeader>
         

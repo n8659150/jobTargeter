@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducer';
 import saga from './saga';
-
+import sagaSearch from './saga_search';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
@@ -11,5 +11,6 @@ const store = createStore(
     );
 
 sagaMiddleware.run(saga);
+sagaMiddleware.run(sagaSearch);
 
 export default store;
