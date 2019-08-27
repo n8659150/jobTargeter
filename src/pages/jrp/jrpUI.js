@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input, Button, Table, PageHeader, Tag } from 'antd/es';
-import { Link } from 'react-router';
 import columns from './table_columns';
 const jrpUI = (props) => {
     return (
@@ -24,7 +23,8 @@ const jrpUI = (props) => {
         <div style={{ marginTop: '10px' }}>
             <Table 
                 dataSource={props.joblist} 
-                columns={columns} />;
+                columns={columns}
+                />;
         </div>
 
     </div>
