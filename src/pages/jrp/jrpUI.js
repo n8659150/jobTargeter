@@ -1,8 +1,8 @@
 import React from 'react';
-import { Input, Button, List, PageHeader, Tag } from 'antd/es';
-import { Link } from 'react-router'
+import { Input, Button, Table, PageHeader, Tag } from 'antd/es';
+import { Link } from 'react-router';
+import columns from './table_columns';
 const jrpUI = (props) => {
-    console.log(props);
     return (
         
    <div style={{ margin: '10px' }}>
@@ -22,19 +22,9 @@ const jrpUI = (props) => {
     </PageHeader>
         
         <div style={{ marginTop: '10px' }}>
-            <List bordered
-                dataSource={props.joblist}
-                renderItem={(item, index) =>
-                    <List.Item>
-                        <List.Item.Meta
-                            key={item.id}
-                            title={<Link to={`detail/${item.id}`}>
-                            {item.jobTitle}
-                            </Link>}
-                        />
-                    </List.Item>
-                }
-            />
+            <Table 
+                dataSource={props.joblist} 
+                columns={columns} />;
         </div>
 
     </div>

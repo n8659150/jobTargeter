@@ -22,7 +22,7 @@ export default (state = defaultState, action) => {
 
     if (action.type === 'getJobResult') {
         const newState = JSON.parse(JSON.stringify(state));
-        newState.joblist.push(action.payload);
+        newState.joblist = action.payload;
         return newState;
     }
 

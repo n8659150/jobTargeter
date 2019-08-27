@@ -7,7 +7,7 @@ import App from './App';
 import notFound from './pages/404/404';
 import ConnectedJRP from './pages/jrp/jrp'
 import ConnectedJDP from './pages/jdp/jdp'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import * as serviceWorker from './serviceWorker';
 
 
@@ -15,6 +15,7 @@ ReactDOM.render(
     (<Provider store={store}>
         <Router history={browserHistory}>
         <Route path="/" component={App}>
+        <IndexRoute component={ConnectedJRP} />
             <Route path="result" component={ConnectedJRP} />
             <Route path="detail/:jobDID" component={ConnectedJDP} />
         <Route path="*" component={notFound}/>

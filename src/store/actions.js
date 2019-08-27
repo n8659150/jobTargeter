@@ -8,6 +8,10 @@ export const search = (keywords) => ({
     keywords
 })
 
+export const getJobResult = () => ({
+    type: 'getJobResult'
+})
+
 export const getJobDetail = (jobDID) => ({
     type: 'getJobDetail',
     jobDID
