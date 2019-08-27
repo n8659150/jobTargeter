@@ -6,9 +6,9 @@ let defaultState = {
     joblist: [{id:1,jobTitle:'Software Engineer1'},{id:2,jobTitle:'Software Engineer2'},{id:3,jobTitle:'Software Engineer3'}],
     currentjob: {}, //current JDP job data
     directions: [], // the direction results we got from google
-    suggestions:{} // the preferred plan we suggest (by car, by train etc.)
+    suggestions: {} // the preferred plan we suggest (by car, by train etc.)
 };
-export default (state = defaultState, action) => {
+export default async (state = defaultState, action) => {
     if (action.type === 'updateKeyword') {
         const newState = JSON.parse(JSON.stringify(state));
         newState.keywords = action.value;
@@ -18,6 +18,15 @@ export default (state = defaultState, action) => {
     if (action.type === 'search') {
         const newState = JSON.parse(JSON.stringify(state));
         newState.keywords = '';
+        return newState;
+    }
+
+    if (action.type === 'getJobDetail') {
+        const newState = JSON.parse(JSON.stringify(state));
+        const jobDetails = await fetch('http://localhost:3000/J3S76T793769S74BKJW')
+        const data = await jobDetails.json()
+        newState.currentjob = data;
+        console.log(newState)
         return newState;
     }
 

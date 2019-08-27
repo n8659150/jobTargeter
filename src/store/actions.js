@@ -6,3 +6,7 @@ export const updateKeyword = (event) => ({
 export const search = () => ({
     type: 'search'
 })
+
+export const getJobDetail = () => ({
+    type: 'getJobDetail'
+})
