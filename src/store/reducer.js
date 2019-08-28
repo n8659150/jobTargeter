@@ -37,6 +37,14 @@ export default (state = defaultState, action) => {
         const newState = JSON.parse(JSON.stringify(state));
         newState.direction = action.payload;
         newState.loading = false;
+        newState.transType = action.payload.transType;
+        newState.formatedDuration = new Date(newState.direction.route.paths[0].duration * 1000).toISOString().substr(11, 8);;
+        return newState;
+    }
+
+    if (action.type === 'setMap') {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.map = action.payload;
         return newState;
     }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Button } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Button, Card } from 'antd/es';
 import { connect } from 'react-redux';
-import { getJobDetail, getDirection } from '../../store/actions';
+import { getJobDetail, getDirection, getMap } from '../../store/actions';
+import { Map, Polygon } from 'react-amap';
 
 
 class Jdp extends Component {
@@ -21,9 +22,6 @@ class Jdp extends Component {
                 tags={<Tag color="green">Home</Tag>}
                 >
                 </PageHeader>
-                <Spin spinning={this.props.loading}>
-                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
-                </Spin>
                 <Descriptions title="" bordered>
                     <Descriptions.Item label="Job Title" span={1}>{this.props.currentjob.Title}</Descriptions.Item>
                     <Descriptions.Item label="Company" >{this.props.currentjob.Campany}</Descriptions.Item>
@@ -33,12 +31,12 @@ class Jdp extends Component {
                     <Descriptions.Item label="Pay Rate" span={5}>{this.props.currentjob.PayRate}</Descriptions.Item>
                     <Descriptions.Item label="Summary" span={3}>{this.props.currentjob.Content}</Descriptions.Item>
                     <Descriptions.Item label="Job Requirements" >
-                    This position provides manual support to the companies rental construction business. 
+                    This position provides manual support to the companies rental construction business.
                     <br />
-                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    This person will also have to engage in record keeping for the shipping and receiving department.
                     <br />
                     They will also be using a Pressure Washer for cleaning purposes.
-                    <br />             
+                    <br />
                     Other Duties:
                     <br />
                     Painting equipment.
@@ -47,12 +45,12 @@ class Jdp extends Component {
                     <br />
                     Region: East China 1
                     <br />
-                    This position provides manual support to the companies rental construction business. 
+                    This position provides manual support to the companies rental construction business.
                     <br />
-                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    This person will also have to engage in record keeping for the shipping and receiving department.
                     <br />
                     They will also be using a Pressure Washer for cleaning purposes.
-                    <br />             
+                    <br />
                     Other Duties:
                     <br />
                     Painting equipment.
@@ -61,12 +59,12 @@ class Jdp extends Component {
                     <br />
                     Region: East China 1
                     <br />
-                    This position provides manual support to the companies rental construction business. 
+                    This position provides manual support to the companies rental construction business.
                     <br />
-                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    This person will also have to engage in record keeping for the shipping and receiving department.
                     <br />
                     They will also be using a Pressure Washer for cleaning purposes.
-                    <br />             
+                    <br />
                     Other Duties:
                     <br />
                     Painting equipment.
@@ -76,18 +74,41 @@ class Jdp extends Component {
                     Region: East China 1
                     </Descriptions.Item>
                     <Descriptions.Item label="Direction Suggestions">
-                        <div>1</div>
+
+                        <Button onClick={
+                            () => {
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'walking')
+                            }
+                        }> walk </Button>
+
+                        <Button onClick={
+                            () => {
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'driving')
+                            }
+                        }> drive </Button>
+
+                        <Button onClick={
+                            () => {
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit/integrated')
+                            }
+                        }> public transport </Button>
+
+                        <br />
+
+                        <Card title="direction" style={{ width: 300 }}>
+                            <div style={{width: '100%', height: '200px'}}>
+                                It will take <Spin spinning={this.props.loading}>
+                                    {this.props.formatedDuration}</Spin> to the office by {this.props.transType}
+                                <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
+                                    <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
+                                </Map>
+                            </div>
+                    </Card>
+
+
                     </Descriptions.Item>
                 </Descriptions>
 
-                <Button onClick={
-                    () => {
-                        this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`)
-                    }
-                }> walk </Button>
-                <Spin spinning={this.props.loading}>
-                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
-                </Spin>
             </div>
         )
     }
@@ -97,7 +118,10 @@ class Jdp extends Component {
             currentjob: state.currentjob,
             direction: state.direction,
             loading: state.loading,
-            userhome: state.userhome
+            userhome: state.userhome,
+            map: state.map,
+            formatedDuration: state.formatedDuration,
+            transType: state.transType
         }
     }
 
@@ -106,8 +130,11 @@ class Jdp extends Component {
             getJobDetail: (jobDID) => {
                 dispatch(getJobDetail(jobDID))
             },
-            getDirection: (origin, dest) => {
-                dispatch(getDirection(origin, dest))
+            getDirection: (origin, dest, transType) => {
+                dispatch(getDirection(origin, dest, transType))
+            },
+            getMap: (origin, dest) => {
+                dispatch(getMap(origin, dest))
             }
         }
     }

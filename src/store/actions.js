@@ -21,12 +21,23 @@ export const setJobDetail = () => ({
     type: 'setJobDetail'
 })
 
-export const getDirection = (origin, dest) => ({
+export const getDirection = (origin, dest, transType) => ({
     type: 'getDirection',
     origin,
-    dest
+    dest,
+    transType
 })
 
 export const setDirection = () => ({
     type: 'setDirection'
+})
+
+export const getMap = (origin, dest) => ({
+    type: 'getMap',
+    origin,
+    dest
+})
+
+export const setMap = () => ({
+    type: 'setMap'
 })
