@@ -82,12 +82,11 @@ class Jdp extends Component {
                     Region: East China 1
                     </Descriptions.Item>
                     <Descriptions.Item label="Direction Suggestions">
-                            home location:
-                            {jobLong},{jobLat},{homeLong},{homeLat}
+                            home location :  <br/>
                             <Input onChange={this.props.updateUserHome} value={this.props.userhome}></Input>
                             <Button onClick={() => {this.props.getHomeLocation(this.props.userhome)}}>update</Button>
                             <div style={{width: '100%', height: '360px'}}>
-                                home location :  <br/>
+
                                 It is <Spin spinning={this.props.loading} wrapperClassName="mapFix">{this.props.distance/1000}</Spin>&nbsp;<span>km away from your home</span>
                                 <br />
                                 It will take &nbsp;<Spin wrapperClassName="mapFix" spinning={this.props.loading}>{this.props.formatedDuration}</Spin>&nbsp;<span>to the office by {this.props.transType}</span>
