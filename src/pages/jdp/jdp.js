@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Badge, Button } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Button } from 'antd/es';
 import { connect } from 'react-redux';
 import { getJobDetail, getDirection } from '../../store/actions';
 
@@ -21,35 +21,65 @@ class Jdp extends Component {
                 tags={<Tag color="green">Home</Tag>}
                 >
                 </PageHeader>
-                {/* {this.props.currentjob.Title} */}
+                <Spin spinning={this.props.loading}>
+                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
+                </Spin>
                 <Descriptions title="" bordered>
-                    <Descriptions.Item label="Job Title">{this.props.currentjob.Title}</Descriptions.Item>
-                    <Descriptions.Item label="Employee Type">Contract to hire</Descriptions.Item>
-                    <Descriptions.Item label="Location">Annapolis Junction, MD</Descriptions.Item>
-                    <Descriptions.Item label="Date Posted">2018-04-24 18:00:00</Descriptions.Item>
-                    <Descriptions.Item label="Usage Time" span={2}>
-                    2019-04-24 18:00:00
+                    <Descriptions.Item label="Job Title" span={1}>{this.props.currentjob.Title}</Descriptions.Item>
+                    <Descriptions.Item label="Company" >{this.props.currentjob.Campany}</Descriptions.Item>
+                    <Descriptions.Item label="Employee Type" >Contract to hire</Descriptions.Item>
+                    <Descriptions.Item label="Location" >Annapolis Junction, MD</Descriptions.Item>
+                    <Descriptions.Item label="Date Posted" >2018-04-24 18:00:00</Descriptions.Item>
+                    <Descriptions.Item label="Pay Rate" span={5}>{this.props.currentjob.payRate}</Descriptions.Item>
+                    <Descriptions.Item label="Summary" span={3}>{this.props.currentjob.Content}</Descriptions.Item>
+                    <Descriptions.Item label="Job Requirements" >
+                    This position provides manual support to the companies rental construction business. 
+                    <br />
+                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    <br />
+                    They will also be using a Pressure Washer for cleaning purposes.
+                    <br />             
+                    Other Duties:
+                    <br />
+                    Painting equipment.
+                    <br />
+                    Power washing
+                    <br />
+                    Region: East China 1
+                    <br />
+                    This position provides manual support to the companies rental construction business. 
+                    <br />
+                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    <br />
+                    They will also be using a Pressure Washer for cleaning purposes.
+                    <br />             
+                    Other Duties:
+                    <br />
+                    Painting equipment.
+                    <br />
+                    Power washing
+                    <br />
+                    Region: East China 1
+                    <br />
+                    This position provides manual support to the companies rental construction business. 
+                    <br />
+                    This person will also have to engage in record keeping for the shipping and receiving department. 
+                    <br />
+                    They will also be using a Pressure Washer for cleaning purposes.
+                    <br />             
+                    Other Duties:
+                    <br />
+                    Painting equipment.
+                    <br />
+                    Power washing
+                    <br />
+                    Region: East China 1
                     </Descriptions.Item>
-                    <Descriptions.Item label="Status" span={3}>
-                    <Badge status="processing" text="Running" />
-                    </Descriptions.Item>
-                    <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>
-                    <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
-                    <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
-                    <Descriptions.Item label="Config Info">
-                    Data disk type: MongoDB
-                    <br />
-                    Database version: 3.4
-                    <br />
-                    Package: dds.mongo.mid
-                    <br />
-                    Storage space: 10 GB
-                    <br />
-                    Replication_factor:3
-                    <br />
-                    Region: East China 1<br />
+                    <Descriptions.Item label="Direction Suggestions">
+                        <div>1</div>
                     </Descriptions.Item>
                 </Descriptions>
+
                 <Button onClick={
                     () => {
                         this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`)
