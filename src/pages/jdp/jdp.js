@@ -29,8 +29,8 @@ class Jdp extends Component {
                     <Descriptions.Item label="Company" >{this.props.currentjob.Campany}</Descriptions.Item>
                     <Descriptions.Item label="Employee Type" >Contract to hire</Descriptions.Item>
                     <Descriptions.Item label="Location" >Annapolis Junction, MD</Descriptions.Item>
-                    <Descriptions.Item label="Date Posted" >2018-04-24 18:00:00</Descriptions.Item>
-                    <Descriptions.Item label="Pay Rate" span={5}>{this.props.currentjob.payRate}</Descriptions.Item>
+                    <Descriptions.Item label="Date Posted" >{this.props.currentjob.DatePosted}</Descriptions.Item>
+                    <Descriptions.Item label="Pay Rate" span={5}>{this.props.currentjob.PayRate}</Descriptions.Item>
                     <Descriptions.Item label="Summary" span={3}>{this.props.currentjob.Content}</Descriptions.Item>
                     <Descriptions.Item label="Job Requirements" >
                     This position provides manual support to the companies rental construction business. 

@@ -7,7 +7,7 @@ const columns = [
         key: 'Details.Title',
         render: (text, record) => (
             <span>
-            　　<Link className="topo-data" to={`/detail/${record.JobDID}`}>{text}</Link>
+                <Link className="topo-data" to={`/detail/${record.JobDID}`}>{text}</Link>
             </span>
         )
     },
@@ -15,6 +15,11 @@ const columns = [
         title: 'Company',
         dataIndex: 'Details.Campany',
         key: 'Details.Campany'
+    },
+    {
+        title: 'Date Posted',
+        dataIndex: 'Details.DatePosted',
+        key: 'Details.DatePosted'
     }
-  ];
+];
 export default columns;
