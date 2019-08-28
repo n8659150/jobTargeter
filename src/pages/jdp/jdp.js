@@ -97,19 +97,17 @@ class Jdp extends Component {
                         <br />
 
                         <Card title="direction" style={{ width: 300 }}>
-                            <div style={{width: '100%', height: '200px'}}>
-                                home location : {this.props.userhomeLocation} <br/>
-                                It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin>km away from your home
-                                AND
-                                It will take <Spin spinning={this.props.loading}>
-                                    {this.props.formatedDuration}</Spin> to the office by {this.props.transType}
-                                <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
-                                    <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
-                                </Map>
-                            </div>
-                    </Card>
-
-
+                            home location : {this.props.userhomeLocation} <br/>
+                            It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin>km away from your home
+                            AND
+                            It will take <Spin spinning={this.props.loading}>
+                                {this.props.formatedDuration}</Spin> to the office by {this.props.transType}
+                        </Card>
+                        <div style={{width: '100%', height: '200px'}}>
+                            <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
+                                <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
+                            </Map>
+                        </div>
                     </Descriptions.Item>
                 </Descriptions>
 
