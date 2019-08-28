@@ -38,13 +38,14 @@ export default (state = defaultState, action) => {
         newState.direction = action.payload;
         newState.loading = false;
         newState.transType = action.payload.transType;
-        newState.formatedDuration = newState.direction.route.paths ? new Date(newState.direction.route.paths[0].duration * 1000).toISOString().substr(11, 8) : new Date(newState.direction.route.transits[0].duration * 1000).toISOString().substr(11, 8) ;
+        newState.formatedDuration = newState.direction.route.paths ? new Date(newState.direction.route.paths[0].duration * 1000).toISOString().substr(11, 8) : new Date(newState.direction.route.transits[0].duration * 1000).toISOString().substr(11, 8);
+        newState.distance = newState.direction.route.paths ? newState.direction.route.paths[0].distance : newState.direction.route.transits[0].distance;
         return newState;
     }
 
-    if (action.type === 'setMap') {
+    if (action.type === 'setHomeLocation') {
         const newState = JSON.parse(JSON.stringify(state));
-        newState.map = action.payload;
+        newState.userhomeLocation = action.payload.geocodes ? action.payload.geocodes[0].location : '';
         return newState;
     }
 

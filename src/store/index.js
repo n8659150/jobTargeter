@@ -4,7 +4,7 @@ import reducer from './reducer';
 import saga from './saga';
 import sagaSearch from './saga_search';
 import sagaDirection from './saga_direction';
-import sagaMap from './saga_map';
+import sagaLocation from './saga_location';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
@@ -15,6 +15,6 @@ const store = createStore(
 sagaMiddleware.run(saga);
 sagaMiddleware.run(sagaSearch);
 sagaMiddleware.run(sagaDirection);
-sagaMiddleware.run(sagaMap);
+sagaMiddleware.run(sagaLocation);
 
 export default store;

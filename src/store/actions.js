@@ -32,12 +32,11 @@ export const setDirection = () => ({
     type: 'setDirection'
 })
 
-export const getMap = (origin, dest) => ({
-    type: 'getMap',
-    origin,
-    dest
+export const getHomeLocation = (homeAddress) => ({
+    type: 'getHomeLocation',
+    homeAddress
 })
 
-export const setMap = () => ({
-    type: 'setMap'
+export const setHomeLocation = () => ({
+    type: 'setHomeLocation'
 })

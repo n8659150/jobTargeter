@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PageHeader, Tag, Spin, Descriptions, Button, Card } from 'antd/es';
 import { connect } from 'react-redux';
-import { getJobDetail, getDirection, getMap } from '../../store/actions';
+import { getJobDetail, getDirection, getHomeLocation } from '../../store/actions';
 import { Map, Polygon } from 'react-amap';
 
 
@@ -9,6 +9,7 @@ class Jdp extends Component {
 
     componentDidMount() {
         this.props.getJobDetail(this.props.params.jobDID)
+        this.props.getHomeLocation('浦东南路500号');
     }
 
     render() {
@@ -97,6 +98,9 @@ class Jdp extends Component {
 
                         <Card title="direction" style={{ width: 300 }}>
                             <div style={{width: '100%', height: '200px'}}>
+                                home location : {this.props.userhomeLocation} <br/>
+                                It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin>km away from your home
+                                AND
                                 It will take <Spin spinning={this.props.loading}>
                                     {this.props.formatedDuration}</Spin> to the office by {this.props.transType}
                                 <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
@@ -119,9 +123,10 @@ class Jdp extends Component {
             direction: state.direction,
             loading: state.loading,
             userhome: state.userhome,
-            map: state.map,
+            userhomeLocation: state.userhomeLocation,
             formatedDuration: state.formatedDuration,
-            transType: state.transType
+            transType: state.transType,
+            distance: state.distance
         }
     }
 
@@ -133,8 +138,8 @@ class Jdp extends Component {
             getDirection: (origin, dest, transType) => {
                 dispatch(getDirection(origin, dest, transType))
             },
-            getMap: (origin, dest) => {
-                dispatch(getMap(origin, dest))
+            getHomeLocation: (homeAddress) => {
+                dispatch(getHomeLocation(homeAddress))
             }
         }
     }
