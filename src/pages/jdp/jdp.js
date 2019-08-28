@@ -9,7 +9,7 @@ class Jdp extends Component {
 
     componentDidMount() {
         this.props.getJobDetail(this.props.params.jobDID)
-        this.props.getHomeLocation('浦东南路500号');
+        this.props.getHomeLocation('浦东南路500号')
     }
 
     render() {
@@ -76,10 +76,10 @@ class Jdp extends Component {
                     </Descriptions.Item>
                     <Descriptions.Item label="Direction Suggestions">                        
                             <div style={{width: '100%', height: '360px'}}>
-                                home location : {this.props.userhomeLocation} <br/>
-                                It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin><span>km away from your home</span>
+                                home location : No 500, South Pudong Rd <br/>
+                                It is <Spin spinning={this.props.loading} wrapperClassName="mapFix">{this.props.distance/1000}</Spin>&nbsp;<span>km away from your home</span>
                                 <br />
-                                It will take &nbsp;<Spin spinning={this.props.loading}>{this.props.formatedDuration}</Spin>&nbsp;<span>to the office by {this.props.transType}</span>
+                                It will take &nbsp;<Spin wrapperClassName="mapFix" spinning={this.props.loading}>{this.props.formatedDuration}</Spin>&nbsp;<span>to the office by {this.props.transType}</span>
                                 <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
                                     <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
                                 </Map>
