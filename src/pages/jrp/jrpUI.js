@@ -3,7 +3,7 @@ import { Input, Button, Table, PageHeader, Tag } from 'antd/es';
 import columns from './table_columns';
 const jrpUI = (props) => {
     return (
-        
+
    <div style={{ margin: '10px' }}>
        <PageHeader
         title="Original Location"
@@ -19,10 +19,10 @@ const jrpUI = (props) => {
             <Button type="primary" onClick={props.search.bind(this,props.keywords)}>Go!</Button>
             ]}>
     </PageHeader>
-        
+
         <div style={{ marginTop: '10px' }}>
-            <Table 
-                dataSource={props.joblist} 
+            <Table
+                dataSource={props.joblist}
                 columns={columns}
                 />;
         </div>
