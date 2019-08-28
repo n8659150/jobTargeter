@@ -1,4 +1,4 @@
-import { put, take, takeLatest, all } from 'redux-saga/effects';
+import { put, take} from 'redux-saga/effects';
 
 
 export default function* getJobDetail() {
@@ -7,3 +7,6 @@ export default function* getJobDetail() {
     .then(response => response.json(), );
     yield put({type:'setJobDetail', payload: json.Details});
 }
+
+
+

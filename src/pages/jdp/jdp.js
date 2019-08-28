@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Layout, Button } from 'antd/es';
+import { Layout, Spin } from 'antd/es';
 import { connect } from 'react-redux';
-import { getJobDetail } from '../../store/actions';
+import { getJobDetail, getDirection } from '../../store/actions';
 const { Header, Content, Footer, Sider } = Layout;
 
 class Jdp extends Component {
@@ -12,16 +12,15 @@ class Jdp extends Component {
 
     componentDidMount() {
         this.props.getJobDetail(this.props.params.jobDID)
+        this.props.getDirection('1', '2')
     }
 
     render() {
         return (
             <div>
-                {/* {this.props.currentjob.Content}
-                {this.props.currentjob.Company} */}
-                {/* {this.props.currentjob.Location} */}
-                {/* {this.props.currentjob.Title} */}
-
+                <Spin spinning={this.props.loading}>
+                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
+                </Spin>
                 <Layout>
                 <Sider>Sider</Sider>
                 <Layout>
@@ -37,9 +36,8 @@ class Jdp extends Component {
     function mapStateToProps(state) {
         return {
             currentjob: state.currentjob,
-            jobTitle: state.title,
-            jobContent: state.content,
-            jobLocation: state.location
+            direction: state.direction,
+            loading: state.loading
         }
     }
 
@@ -47,6 +45,9 @@ class Jdp extends Component {
         return {
             getJobDetail: (jobDID) => {
                 dispatch(getJobDetail(jobDID))
+            },
+            getDirection: (origin, dest) => {
+                dispatch(getDirection(origin, dest))
             }
         }
     }

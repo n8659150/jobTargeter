@@ -6,7 +6,8 @@ let defaultState = {
     joblist: [],
     currentjob: {}, //current JDP job data
     directions: [], // the direction results we got from google
-    suggestions: {} // the preferred plan we suggest (by car, by train etc.)
+    suggestions: {}, // the preferred plan we suggest (by car, by train etc.)
+    direction: {}
 };
 export default (state = defaultState, action) => {
     if (action.type === 'updateKeyword') {
@@ -26,10 +27,16 @@ export default (state = defaultState, action) => {
         return newState;
     }
 
-
     if (action.type === 'setJobDetail') {
         const newState = JSON.parse(JSON.stringify(state));
         newState.currentjob = action.payload;
+        return newState;
+    }
+
+    if (action.type === 'setDirection') {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.direction = action.payload;
+        newState.loading = false;
         return newState;
     }
 

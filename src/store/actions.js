@@ -20,3 +20,13 @@ export const getJobDetail = (jobDID) => ({
 export const setJobDetail = () => ({
     type: 'setJobDetail'
 })
+
+export const getDirection = (origin, dest) => ({
+    type: 'getDirection',
+    origin,
+    dest
+})
+
+export const setDirection = () => ({
+    type: 'setDirection'
+})
