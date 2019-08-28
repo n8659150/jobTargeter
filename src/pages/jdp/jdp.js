@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Button, Radio } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Button, Radio, Input } from 'antd/es';
 import { connect } from 'react-redux';
-import { getJobDetail, getDirection, getHomeLocation } from '../../store/actions';
+import { getJobDetail, getDirection, getHomeLocation, updateUserHome } from '../../store/actions';
 import { Map, Polygon } from 'react-amap';
 
 
@@ -9,10 +9,17 @@ class Jdp extends Component {
 
     componentDidMount() {
         this.props.getJobDetail(this.props.params.jobDID)
-        this.props.getHomeLocation('浦东南路500号')
+        this.props.getHomeLocation(this.props.userhome);
     }
 
     render() {
+        let jobLong = this.props.currentjob.Location && this.props.currentjob.Location.Longitude;
+        let jobLat = this.props.currentjob.Location && this.props.currentjob.Location.Latitude;
+        let homeLat = this.props.userhomeLocation ? this.props.userhomeLocation.split(',')[0] : '';
+        let homeLong = this.props.userhomeLocation ? this.props.userhomeLocation.split(',')[1] : '';
+
+        // let jobLngLat = new AMap.LngLat(homeLong, homeLat);
+        // let homeLngLat = new AMap.LngLat(homeLong, homeLat);
         return (
             <div style={{ margin:"10px" }}>
                 <PageHeader
@@ -74,19 +81,29 @@ class Jdp extends Component {
                     <br />
                     Region: East China 1
                     </Descriptions.Item>
-                    <Descriptions.Item label="Direction Suggestions">                        
+                    <Descriptions.Item label="Direction Suggestions">
+                            home location:
+                            {jobLong},{jobLat},{homeLong},{homeLat}
+                            <Input onChange={this.props.updateUserHome} value={this.props.userhome}></Input>
+                            <Button onClick={() => {this.props.getHomeLocation(this.props.userhome)}}>update</Button>
                             <div style={{width: '100%', height: '360px'}}>
-                                home location : No 500, South Pudong Rd <br/>
+                                home location :  <br/>
                                 It is <Spin spinning={this.props.loading} wrapperClassName="mapFix">{this.props.distance/1000}</Spin>&nbsp;<span>km away from your home</span>
                                 <br />
                                 It will take &nbsp;<Spin wrapperClassName="mapFix" spinning={this.props.loading}>{this.props.formatedDuration}</Spin>&nbsp;<span>to the office by {this.props.transType}</span>
-                                <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
-                                    <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
+                                <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} city={"上海"} zoom={14} center={{longitude: Number.parseFloat(jobLat), latitude: Number.parseFloat(jobLong)}}>
+                                    <Polygon path={[{
+                                        longitude: Number.parseFloat(jobLat),
+                                        latitude: Number.parseFloat(jobLong)
+                                    }, {
+                                        longitude: Number.parseFloat(homeLat),
+                                        latitude: Number.parseFloat(homeLong)
+                                    }]}/>
                                 </Map>
                             </div>
 
                             <Radio.Group defaultValue="walking" onChange={(e)=> {
-                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, e.target.value)
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`${this.props.userhomeLocation}`, e.target.value)
                             }}>
                                 <Radio.Button value="walking">Walk</Radio.Button>
                                 <Radio.Button value="driving">Drive</Radio.Button>
@@ -122,6 +139,9 @@ class Jdp extends Component {
             },
             getHomeLocation: (homeAddress) => {
                 dispatch(getHomeLocation(homeAddress))
+            },
+            updateUserHome: (event) => {
+                dispatch(updateUserHome(event))
             }
         }
     }

@@ -1,6 +1,6 @@
 let defaultState = {
     keywords: '', // the word used to filter jobs
-    userhome:'No 500, South Pudong Rd', //The location user provide (the start location)
+    userhome:'浦东南路1001号', //The location user provide (the start location)
     userhome_lat:0.00,
     userhome_long:0.00,
     joblist: [],
@@ -45,7 +45,13 @@ export default (state = defaultState, action) => {
 
     if (action.type === 'setHomeLocation') {
         const newState = JSON.parse(JSON.stringify(state));
-        newState.userhomeLocation = action.payload.geocodes ? action.payload.geocodes[0].location : '';
+        newState.userhomeLocation = action.payload.geocodes[0] ? action.payload.geocodes[0].location : '';
+        return newState;
+    }
+
+    if (action.type === 'updateUserHome') {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.userhome = action.homeAddress;
         return newState;
     }
 

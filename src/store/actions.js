@@ -40,3 +40,9 @@ export const getHomeLocation = (homeAddress) => ({
 export const setHomeLocation = () => ({
     type: 'setHomeLocation'
 })
+
+export const updateUserHome = (event) => ({
+    type: 'updateUserHome',
+    homeAddress: event.target.value
+})
+
