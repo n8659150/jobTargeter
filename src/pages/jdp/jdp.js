@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Button } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Button, Radio } from 'antd/es';
 import { connect } from 'react-redux';
 import { getJobDetail, getDirection, getHomeLocation } from '../../store/actions';
 import { Map, Polygon } from 'react-amap';
@@ -84,25 +84,14 @@ class Jdp extends Component {
                                     <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
                                 </Map>
                             </div>
-                            <Button onClick={
-                                () => {
-                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'walking')
-                                }
-                            }> walk </Button>
 
-                            <Button onClick={
-                                () => {
-                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'driving')
-                                }
-                            }> drive </Button>
-
-                            <Button onClick={
-                                () => {
-                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit')
-                                }
-                            }> public transport </Button>
-
-                            <br />
+                            <Radio.Group defaultValue="walking" onChange={(e)=> {
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, e.target.value)
+                            }}>
+                                <Radio.Button value="walking">Walk</Radio.Button>
+                                <Radio.Button value="driving">Drive</Radio.Button>
+                                <Radio.Button value="transit">Public Transport</Radio.Button>
+                            </Radio.Group>
                     </Descriptions.Item>
                 </Descriptions>
 
