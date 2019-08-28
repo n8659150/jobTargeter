@@ -3,3 +3,6 @@
   width: 82%;
   margin: 0 auto;
 }
+.ant-spin-nested-loading {
+  display: inline-block;
+}

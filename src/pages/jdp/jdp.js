@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Button, Card } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Button } from 'antd/es';
 import { connect } from 'react-redux';
 import { getJobDetail, getDirection, getHomeLocation } from '../../store/actions';
 import { Map, Polygon } from 'react-amap';
@@ -28,7 +28,7 @@ class Jdp extends Component {
                     <Descriptions.Item label="Company" >{this.props.currentjob.Campany}</Descriptions.Item>
                     <Descriptions.Item label="Employee Type" >Contract to hire</Descriptions.Item>
                     <Descriptions.Item label="Location" >Annapolis Junction, MD</Descriptions.Item>
-                    <Descriptions.Item label="Date Posted" >{this.props.currentjob.DatePosted}</Descriptions.Item>
+                    <Descriptions.Item label="Date Posted">2019-08-27</Descriptions.Item>
                     <Descriptions.Item label="Pay Rate" span={5}>{this.props.currentjob.PayRate}</Descriptions.Item>
                     <Descriptions.Item label="Summary" span={3}>{this.props.currentjob.Content}</Descriptions.Item>
                     <Descriptions.Item label="Job Requirements" >
@@ -74,40 +74,35 @@ class Jdp extends Component {
                     <br />
                     Region: East China 1
                     </Descriptions.Item>
-                    <Descriptions.Item label="Direction Suggestions">
+                    <Descriptions.Item label="Direction Suggestions">                        
+                            <div style={{width: '100%', height: '360px'}}>
+                                home location : {this.props.userhomeLocation} <br/>
+                                It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin><span>km away from your home</span>
+                                <br />
+                                It will take &nbsp;<Spin spinning={this.props.loading}>{this.props.formatedDuration}</Spin>&nbsp;<span>to the office by {this.props.transType}</span>
+                                <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
+                                    <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
+                                </Map>
+                            </div>
+                            <Button onClick={
+                                () => {
+                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'walking')
+                                }
+                            }> walk </Button>
 
-                        <Button onClick={
-                            () => {
-                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'walking')
-                            }
-                        }> walk </Button>
+                            <Button onClick={
+                                () => {
+                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'driving')
+                                }
+                            }> drive </Button>
 
-                        <Button onClick={
-                            () => {
-                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'driving')
-                            }
-                        }> drive </Button>
+                            <Button onClick={
+                                () => {
+                                    this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit')
+                                }
+                            }> public transport </Button>
 
-                        <Button onClick={
-                            () => {
-                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit')
-                            }
-                        }> public transport </Button>
-
-                        <br />
-
-                        <Card title="direction" style={{ width: 300 }}>
-                            home location : {this.props.userhomeLocation} <br/>
-                            It is <Spin spinning={this.props.loading}>{this.props.distance/1000}</Spin>km away from your home
-                            AND
-                            It will take <Spin spinning={this.props.loading}>
-                                {this.props.formatedDuration}</Spin> to the office by {this.props.transType}
-                        </Card>
-                        <div style={{width: '100%', height: '200px'}}>
-                            <Map amapkey={'d97b26422a082ad3e8111d9fe473a7bb'} center={{longitude: 113.587922, latitude:40.081577}}>
-                                <Polygon path={[{longitude: 113.587922, latitude:40.081577}, {longitude: 116.587922, latitude:45.081577}]}/>
-                            </Map>
-                        </div>
+                            <br />
                     </Descriptions.Item>
                 </Descriptions>
 
