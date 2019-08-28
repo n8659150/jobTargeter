@@ -38,7 +38,7 @@ export default (state = defaultState, action) => {
         newState.direction = action.payload;
         newState.loading = false;
         newState.transType = action.payload.transType;
-        newState.formatedDuration = new Date(newState.direction.route.paths[0].duration * 1000).toISOString().substr(11, 8);;
+        newState.formatedDuration = newState.direction.route.paths ? new Date(newState.direction.route.paths[0].duration * 1000).toISOString().substr(11, 8) : new Date(newState.direction.route.transits[0].duration * 1000).toISOString().substr(11, 8) ;
         return newState;
     }
 

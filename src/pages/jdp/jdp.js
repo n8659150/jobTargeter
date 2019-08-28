@@ -89,7 +89,7 @@ class Jdp extends Component {
 
                         <Button onClick={
                             () => {
-                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit/integrated')
+                                this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`, 'transit')
                             }
                         }> public transport </Button>
 
