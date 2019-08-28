@@ -1,10 +1,12 @@
 {
     "all": [
         {
-            "JobDID": "JXS76T793769S74BKL1",
+            "JobDID": "1",
             "Details": {
                 "Title": "Forklift Operator (Sit Down Forklift)",
                 "Campany": "DSC Logistics, Inc.",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "DSC Logistics is a leader in transforming logistics and supply chain management into a critical business strategy based on collaborative partnerships, innovative thinking and high-performance operations.",
                 "Location": {
                     "Latitude": 33.3940355,
@@ -13,10 +15,12 @@
             }
         },
         {
-            "JobDID": "JXS76T793769S74BKL2",
+            "JobDID": "2",
             "Details": {
                 "Title": "Automotive Technician",
                 "Campany": "UPS",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "UPS is hiring individuals to work as Full-Time Automotive Technicians. Fleet diesel and gas experience or trade school training are highly desirable. Diagnostic and troubleshooting skills are encouraged. UPS Automotive Technicians must be at least 21 years",
                 "Location": {
                     "Latitude": 33.7834238,
@@ -25,10 +29,12 @@
             }
         },
         {
-            "JobDID": "JXS76T793769S74BKL3",
+            "JobDID": "3",
             "Details": {
                 "Title": "Food Manufacturing Packaging Machine Operator - 2nd Shift",
                 "Campany": "TreeHouse Foods, Inc.",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "Food Manufacturing Packaging Machine Operator - 2nd Shift Job Description: Set-up and operate dressing filling machines and support equipment. Verify proper packaging and label information and maintain records through computer based systems.",
                 "Location": {
                     "Latitude": 33.9409868,
@@ -37,10 +43,12 @@
             }
         },
         {
-            "JobDID": "JXS76T793769S74BKL4",
+            "JobDID": "4",
             "Details": {
                 "Title": "Respiratory Therapist Paid Per Service",
                 "Campany": "Rotech Healthcare Inc",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "We are seeking a qualified Respiratory Therapist (RT / RRT / CRT) to join the Rotech team. In this position you will be responsible for providing clinical patient services and support within the location.",
                 "Location": {
                     "Latitude": 34.0903379,
@@ -49,10 +57,12 @@
             }
         },
         {
-            "JobDID": "JXS76T793769S74BKL5",
+            "JobDID": "5",
             "Details": {
                 "Title": "Quality Control Tech -(Yard/Warehouse) M-F 10a-7p",
                 "Campany": "Lkq Corporation",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "As a part of our growth LKQ is looking for a dedicated and passionate Quality Control Tech with knowledge of replacement parts for a Quality Control Tech. The Quality Control Tech must have some experience in car repair and parts.",
                 "Location": {
                     "Latitude": 34.065926,
@@ -61,10 +71,12 @@
             }
         },
         {
-            "JobDID": "JXS76T793769S74BKL6",
+            "JobDID": "6",
             "Details": {
                 "Title": "DISHWASHER-Black Bear Lodge",
                 "Campany": "Black Bear Lodge",
+                "payRate": "$30 - $35 per hour",
+                "Type": "Full Time",
                 "Content": "Foundations Recovery Network (FRN) is the premier provider of integrated treatment for co-occurring addiction and mental health concerns, offering residential and outpatient services nationwide.",
                 "Location": {
                     "Latitude": 34.9453994,
@@ -73,10 +85,12 @@
             }
         }
     ],
-    "JXS76T793769S74BKL1": {
+    "1": {
         "Details": {
             "Title": "Forklift Operator (Sit Down Forklift)",
             "Campany": "DSC Logistics, Inc.",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "DSC Logistics is a leader in transforming logistics and supply chain management into a critical business strategy based on collaborative partnerships, innovative thinking and high-performance operations.",
             "Location": {
                 "Latitude": 33.3940355,
@@ -84,10 +98,12 @@
             }
         }
     },
-    "JXS76T793769S74BKL2": {
+    "2": {
         "Details": {
             "Title": "Automotive Technician",
             "Campany": "UPS",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "UPS is hiring individuals to work as Full-Time Automotive Technicians. Fleet diesel and gas experience or trade school training are highly desirable. Diagnostic and troubleshooting skills are encouraged. UPS Automotive Technicians must be at least 21 years",
             "Location": {
                 "Latitude": 33.7834238,
@@ -95,10 +111,12 @@
             }
         }
     },
-    "JXS76T793769S74BKL3": {
+    "3": {
         "Details": {
             "Title": "Food Manufacturing Packaging Machine Operator - 2nd Shift",
             "Campany": "TreeHouse Foods, Inc.",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "Food Manufacturing Packaging Machine Operator - 2nd Shift Job Description: Set-up and operate dressing filling machines and support equipment. Verify proper packaging and label information and maintain records through computer based systems.",
             "Location": {
                 "Latitude": 33.9409868,
@@ -106,10 +124,12 @@
             }
         }
     },
-    "JXS76T793769S74BKL4": {
+    "4": {
         "Details": {
             "Title": "Respiratory Therapist Paid Per Service",
             "Campany": "Rotech Healthcare Inc",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "We are seeking a qualified Respiratory Therapist (RT / RRT / CRT) to join the Rotech team. In this position you will be responsible for providing clinical patient services and support within the location.",
             "Location": {
                 "Latitude": 34.0903379,
@@ -117,10 +137,12 @@
             }
         }
     },
-    "JXS76T793769S74BKL5": {
+    "5": {
         "Details": {
             "Title": "Quality Control Tech -(Yard/Warehouse) M-F 10a-7p",
             "Campany": "Lkq Corporation",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "As a part of our growth LKQ is looking for a dedicated and passionate Quality Control Tech with knowledge of replacement parts for a Quality Control Tech. The Quality Control Tech must have some experience in car repair and parts.",
             "Location": {
                 "Latitude": 34.065926,
@@ -128,10 +150,12 @@
             }
         }
     },
-    "JXS76T793769S74BKL6": {
+    "6": {
         "Details": {
             "Title": "DISHWASHER-Black Bear Lodge",
             "Campany": "Black Bear Lodge",
+            "payRate": "$30 - $35 per hour",
+            "Type": "Full Time",
             "Content": "Foundations Recovery Network (FRN) is the premier provider of integrated treatment for co-occurring addiction and mental health concerns, offering residential and outpatient services nationwide.",
             "Location": {
                 "Latitude": 34.9453994,
