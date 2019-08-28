@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageHeader, Tag, Spin, Descriptions, Badge } from 'antd/es';
+import { PageHeader, Tag, Spin, Descriptions, Badge, Button } from 'antd/es';
 import { connect } from 'react-redux';
 import { getJobDetail, getDirection } from '../../store/actions';
 
@@ -8,7 +8,6 @@ class Jdp extends Component {
 
     componentDidMount() {
         this.props.getJobDetail(this.props.params.jobDID)
-        this.props.getDirection(Math.random().toString().slice(-1), Math.random().toString().slice(-3))
     }
 
     render() {
@@ -22,9 +21,6 @@ class Jdp extends Component {
                 tags={<Tag color="green">Home</Tag>}
                 >
                 </PageHeader>
-                <Spin spinning={this.props.loading}>
-                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
-                </Spin>
                 {/* {this.props.currentjob.Title} */}
                 <Descriptions title="" bordered>
                     <Descriptions.Item label="Job Title">{this.props.currentjob.Title}</Descriptions.Item>
@@ -54,6 +50,14 @@ class Jdp extends Component {
                     Region: East China 1<br />
                     </Descriptions.Item>
                 </Descriptions>
+                <Button onClick={
+                    () => {
+                        this.props.getDirection(`${this.props.currentjob.Location && this.props.currentjob.Location.Latitude},${this.props.currentjob.Location && this.props.currentjob.Location.Longitude}`,`123`)
+                    }
+                }> walk </Button>
+                <Spin spinning={this.props.loading}>
+                    {this.props.direction.route && this.props.direction.route.paths[0].duration}
+                </Spin>
             </div>
         )
     }
